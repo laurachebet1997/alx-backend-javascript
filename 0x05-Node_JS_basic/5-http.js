@@ -47,7 +47,7 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
           studentGroups[field].push(Object.fromEntries(studentEntries));
         }
 
-	const totalStudents = Object.values(studentGroups).reduce(
+        const totalStudents = Object.values(studentGroups).reduce(
           (pre, cur) => (pre || []).length + cur.length,
         );
         reportParts.push(`Number of students: ${totalStudents}`);
@@ -90,7 +90,7 @@ const SERVER_ROUTE_HANDLERS = [
           res.statusCode = 200;
           res.write(Buffer.from(responseText));
         })
-	.catch((err) => {
+        .catch((err) => {
           responseParts.push(err instanceof Error ? err.message : err.toString());
           const responseText = responseParts.join('\n');
           res.setHeader('Content-Type', 'text/plain');
