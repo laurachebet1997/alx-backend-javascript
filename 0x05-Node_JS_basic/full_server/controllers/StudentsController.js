@@ -7,7 +7,7 @@ const VALID_MAJORS = ['CS', 'SWE'];
 
 /**
  * Contains the student-related route handlers.
- * @author Laura Chebet
+ * @author Laura chebet
  */
 class StudentsController {
   static getAllStudents(request, response) {
@@ -28,7 +28,7 @@ class StudentsController {
           return 0;
         };
 
-	for (const [field, group] of Object.entries(studentGroups).sort(cmpFxn)) {
+        for (const [field, group] of Object.entries(studentGroups).sort(cmpFxn)) {
           responseParts.push([
             `Number of students in ${field}: ${group.length}.`,
             'List:',
@@ -56,7 +56,7 @@ class StudentsController {
       .then((studentGroups) => {
         let responseText = '';
 
-	if (Object.keys(studentGroups).includes(major)) {
+        if (Object.keys(studentGroups).includes(major)) {
           const group = studentGroups[major];
           responseText = `List: ${group.map((student) => student.firstname).join(', ')}`;
         }
